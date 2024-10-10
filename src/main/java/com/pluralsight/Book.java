@@ -47,5 +47,10 @@ public class Book {
         this.checkedOutTo = "";
         this.isCheckedOut = false;
     }
+
+    @Override
+    public String toString() {
+        return "ID: "+ id + " ISBN: " + isbn + " Title: " + title;
+    }
 }
 
