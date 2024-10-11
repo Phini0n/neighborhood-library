@@ -45,11 +45,11 @@ public class NeighborhoodLibrary {
         }
     }
 
-    public static void listBooks(Book[] books, boolean isCheckIn, Scanner scanner) {
+    public static void listBooks(Book[] books, boolean isCheckOut, Scanner scanner) {
         System.out.println("-----");
 
         //Prints Books that aren't checked out and begins check in process
-        if (isCheckIn) {
+        if (isCheckOut) {
             System.out.println("Available Books: ");
             for (Book book : books) {
                 if (book != null && !book.isCheckedOut()) {
@@ -64,7 +64,7 @@ public class NeighborhoodLibrary {
 
             System.out.println("-----");
 
-            promptCheckInCheckout(books, isCheckIn, scanner);
+            promptCheckInCheckout(books, isCheckOut, scanner);
         }
         // Prints Books that are checked out and begins check out process
         else {
@@ -82,12 +82,12 @@ public class NeighborhoodLibrary {
 
             System.out.println("-----");
 
-            promptCheckInCheckout(books, isCheckIn, scanner);
+            promptCheckInCheckout(books, isCheckOut, scanner);
         }
     }
 
-    public static void promptCheckInCheckout(Book[] books, boolean isCheckIn, Scanner scanner) {
-        String operation = isCheckIn ? "check out" : "check in";
+    public static void promptCheckInCheckout(Book[] books, boolean isCheckOut, Scanner scanner) {
+        String operation = isCheckOut ? "check out" : "check in";
         System.out.print("Would you like to " + operation + " a book?\n" +
                 "C) Continue\n" +
                 "X) Return to Main Menu\n" +
@@ -96,7 +96,7 @@ public class NeighborhoodLibrary {
         switch (s.toUpperCase()) {
             case "C" :
                 // If we're checking out, pass to checkOutBook Method.
-                if (isCheckIn) {
+                if (isCheckOut) {
                     checkOutBook(books, scanner);
                 // Else, we pass to checkInBook Method.
                 } else {
